@@ -5,8 +5,11 @@ Video Demonstration URL:
 
 Notes:
 -Reaction Timer and Gameshow Buzzer are operational
+
 -Statistics are incomplete, but Measurement Manager is mostly complete
+
 -As a result, no e-mail functionality
+
 -UML diagram added in main folder
 
 Additional Resource Links:
