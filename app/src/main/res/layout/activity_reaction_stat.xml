@@ -7,7 +7,7 @@
     tools:context="com.mycompany.tcngo_reflex.StatisticsView"
     android:background="@color/background_material_dark">
 
-    <TextView android:text="/@string/stat_info"
+    <TextView android:text="Statistics for Reaction Timer"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,24 +24,23 @@
         android:id="@+id/textBlank"
         android:textColor="#ac9fa3" />
 
-    <Button
-        android:id="@+id/button_react"
+    <TextView android:text="Minimum"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textBlank"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="@string/button_reaction"
-        android:onClick="reactionStat"/>
-
-    <Button
-        android:id="@+id/button_buzz"
+        android:id="@+id/textMin"
+        android:textColor="#ac9fa3" />
+    <ListView
+        android:id="@+id/min10List"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button_react"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="@string/button_gameshow"
-        android:onClick="buzzerStat"/>
+        android:layout_height="263dp"
+        android:layout_below="@+id/textMin"
+        android:scrollbars="vertical">
+
+    </ListView>
+
 
 </RelativeLayout>

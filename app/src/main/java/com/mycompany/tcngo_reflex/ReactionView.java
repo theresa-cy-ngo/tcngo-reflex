@@ -1,102 +1,172 @@
+/*
+Copyright 2015 Theresa Ngo
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+ */
+
 package com.mycompany.tcngo_reflex;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.RelativeLayout;
 
+import java.io.FileOutputStream;
+
+/**
+ * Created by Theresa Ngo on 04-10-15.
+ */
+
+// This activity is the main part of the Reaction Time game
 public class ReactionView extends AppCompatActivity {
 
+    // Initialize save file and count down timer
+    private CountDownTimer count;
+    private static final String FILENAME = "reaction.sav";
+
+    // Create file
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reaction_view);
 
-        Intent intent = new Intent(this, ReactionPopUp.class);
-        startActivity(intent);
+        // Popup menu with instructions
+        AlertDialog.Builder intro = new AlertDialog.Builder(ReactionView.this);
+        intro.setTitle("Reaction timer instructions");
+        intro.setMessage("Press the button when it says 'Click!!'." +
+                "Begin when this message closes.");
+
+        // Counter between 10ms to 2000ms begins after dialog box is closed
+        intro.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int choice) {
+                        dialog.dismiss();
+                        count.start();
+                    }
+                }
+        );
+        intro.show();
+
     }
 
-    public void onStart(){
+    // Start file
+    @Override
+    protected void onStart(){
         super.onStart();
-        Intent intent = new Intent(this, ReactionPopUp.class);
-        startActivity(intent);
-        super.onPause();
-    }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
+        // Define button variable and connect to its interface
+        final Button button = (Button) findViewById(R.id.clickButton);
 
-    public void game_start(){
-        // http://tutorials.jenkov.com/android/buttons.html
-        final Button button;
-        button = (Button)findViewById(R.id.clickButton);
+        // Set the button to tell the user to wait
+        button.setText("Wait...");
 
-        try {
-            Timer start_time = new Timer();
-            button.setText("Starting...");
-            synchronized (this) {
-                this.wait(start_time.RandomTime());
-            }
-            //ReactionView.this.onEarlyClick();
+        // Calls GenerateTime class to determine the amount of waiting time
+        GenerateTime seconds = new GenerateTime();
+        int wait = seconds.RandomTime();
 
-        } catch (Exception e) {
-            button.setText("Too Early!");
-            //ReactionView.this.onEarlyClick();
-        }
+        // Initializes counter
+        count = new CountDownTimer(wait,1) {
 
-        try {
-            Timer time = new Timer();
-            button.setText("Wait");
-            synchronized (this) {
-                this.wait(time.RandomTime());
-            }
-            button.setText("Click!");
-
-            //ReactionView.this.onEarlyClick();
-
-        } catch (Exception e) {
-            button.setText("Too Early!");
-            //ReactionView.this.onEarlyClick();
-        }
-
-        button.setOnClickListener(new View.OnClickListener() {
-
+            // Function of the counter while it is counting down
             @Override
-            public void onClick(View v) {
-                button.setText("Clicked");
+            public void onTick(long millisUntilFinished) {
 
+                // Waits for button in case it is pressed early
+                button.setOnClickListener(new View.OnClickListener() {
+
+                    // If the button is pressed too early
+                    @Override
+                    public void onClick(View v) {
+
+                        // Popup window to inform the user and restart the game
+                        AlertDialog.Builder early = new AlertDialog.Builder(ReactionView.this);
+                        early.setTitle("Error");
+                        early.setMessage("That was too early.");
+                        early.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int choice) {
+                                        button.setText("Wait...");
+                                        dialog.dismiss();
+                                        cancel();
+                                        start();
+                                    }
+                                }
+                        );
+                        early.show();
+                    }
+                });
             }
 
-        });
+            // After the countdown is complete
+            @Override
+            public void onFinish() {
 
-        // The activity has become visible (it is now "resumed").
+                // Change button text to prompt user to click
+                button.setText("Click!!");
+
+                // Record starting time
+                final long startTime = System.currentTimeMillis();
+
+                // Waits for button to be pressed
+                button.setOnClickListener(new View.OnClickListener() {
+
+                    // When the button is clicked
+                    @Override
+                    public void onClick(View v) {
+
+                        // Record the end time and calculate the reaction time
+                        long endTime = System.currentTimeMillis();
+                        long totalTime = endTime - startTime;
+                        int intTotalTime = (int) totalTime;
+
+                        // Save the reaction time into the file
+                        setResult(RESULT_OK);
+                        saveInFile(intTotalTime, getApplicationContext());
+
+                        // Popup menu to return result and restart the game
+                        AlertDialog.Builder result = new AlertDialog.Builder(ReactionView.this);
+                        result.setTitle("Result");
+                        result.setMessage("Time taken: " + (intTotalTime) + " ms");
+                        result.setPositiveButton("Restart", new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int choice) {
+                                        dialog.dismiss();
+                                        Intent intent = getIntent();
+                                        finish();
+                                        startActivity(intent);
+                                    }
+                                }
+                        );
+                        result.show();
+                    }
+                });
+
+            }
+        };
+
     }
 
-    public void onEarlyClick(){
-        super.onResume();
-
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        // Another activity is taking focus (this activity is about to be "paused").
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        // The activity is no longer visible (it is now "stopped")
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        // The activity is about to be destroyed.
+    // Function for saving the file
+    private void saveInFile(int time, Context con){
+        try {
+            FileOutputStream fos = con.openFileOutput(FILENAME, 0);
+            fos.write(String.valueOf(time).getBytes());
+            fos.close();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 }

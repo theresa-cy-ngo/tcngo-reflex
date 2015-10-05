@@ -40,6 +40,14 @@
             android:name=".BuzzerFour"
             android:label="@string/title_activity_buzzer_four" >
         </activity>
+        <activity
+            android:name=".ReactionStat"
+            android:label="@string/title_activity_reaction_stat" >
+        </activity>
+        <activity
+            android:name=".BuzzerStat"
+            android:label="@string/title_activity_buzzer_stat" >
+        </activity>
     </application>
 
 </manifest>

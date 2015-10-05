@@ -22,6 +22,9 @@
     <string name="buzzer_three">Player 3</string>
     <string name="buzzer_four">Player 4</string>
 
+    //Strings for statistics menu
+    <string name="stat_info">Please choose one of the following statistics.</string>
+
     <string name="action_settings">Settings</string>
     <string name="title_activity_reaction_view">ReactionView</string>
     <string name="clickNow">Starting</string>
@@ -35,4 +38,6 @@
     <string name="title_activity_buzzer_two">BuzzerTwo</string>
     <string name="title_activity_buzzer_three">BuzzerThree</string>
     <string name="title_activity_buzzer_four">BuzzerFour</string>
+    <string name="title_activity_reaction_stat">ReactionStat</string>
+    <string name="title_activity_buzzer_stat">BuzzerStat</string>
 </resources>
