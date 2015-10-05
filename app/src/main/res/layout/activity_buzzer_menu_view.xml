@@ -7,7 +7,7 @@
     tools:context="com.mycompany.tcngo_reflex.StatisticsView"
     android:background="@color/background_material_dark">
 
-    <TextView android:text="@string/main_info"
+    <TextView android:text="@string/buzzer_info"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,52 +24,34 @@
         android:id="@+id/textBlank"
         android:textColor="#ac9fa3" />
 
-    <TextView android:text="@string/intro2"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="wrap_content"
+    <Button
+        android:id="@+id/buzzerTwo"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textBlank"
-        android:id="@+id/textView2"
-        android:textColor="#ac9fa3" />
-
-    <TextView android:text=""
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/textBlank2"
-        android:textColor="#ac9fa3" />
+        android:text="@string/button_two"
+        android:onClick="gameTwo"/>
 
     <Button
-        android:id="@+id/reaction"
+        android:id="@+id/buzzerThree"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textBlank2"
+        android:layout_below="@+id/buzzerTwo"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="@string/button_reaction"
-        android:onClick="reactionOption" />
+        android:text="@string/button_three"
+        android:onClick="gameThree"/>
 
     <Button
-        android:id="@+id/gameshow"
+        android:id="@+id/buzzerFour"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/reaction"
+        android:layout_below="@+id/buzzerThree"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:text="@string/button_gameshow"
-        android:onClick="gameshowOption" />
-
-    <Button
-        android:id="@+id/statistics"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/gameshow"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="@string/button_statistics"
-        android:onClick="statisticsOption" />/>
+        android:text="@string/button_four"
+        android:onClick="gameFour"/>
 
 </RelativeLayout>

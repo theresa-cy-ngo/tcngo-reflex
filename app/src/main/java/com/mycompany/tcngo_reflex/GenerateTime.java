@@ -10,7 +10,7 @@ public class GenerateTime {
     // Chooses a random wait time between 10ms and 2000ms
     public int RandomTime() {
         Random counter = new Random();
-        int timer = 10 + counter.nextInt(5000);
+        int timer = 10 + counter.nextInt(1990);
 
         return timer;
     }

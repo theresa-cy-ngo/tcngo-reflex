@@ -24,6 +24,22 @@
             android:name=".StatisticsView"
             android:label="@string/title_activity_statistics_view" >
         </activity>
+        <activity
+            android:name=".BuzzerMenuView"
+            android:label="@string/title_activity_buzzer_menu_view" >
+        </activity>
+        <activity
+            android:name=".BuzzerTwo"
+            android:label="@string/title_activity_buzzer_two" >
+        </activity>
+        <activity
+            android:name=".BuzzerThree"
+            android:label="@string/title_activity_buzzer_three" >
+        </activity>
+        <activity
+            android:name=".BuzzerFour"
+            android:label="@string/title_activity_buzzer_four" >
+        </activity>
     </application>
 
 </manifest>

@@ -38,8 +38,20 @@ public class MainMenu extends AppCompatActivity {
     }
 
     // Called when the user chooses Reaction Time
-    public void reactionTime(View view){
+    public void reactionOption(View view){
         Intent intent = new Intent(this, ReactionView.class);
+        startActivity(intent);
+    }
+
+    // Called when the user chooses Gameshow Buzzer
+    public void gameshowOption(View view){
+        Intent intent = new Intent(this, BuzzerMenuView.class);
+        startActivity(intent);
+    }
+
+    // Called when the user chooses Statistics
+    public void statisticsOption(View view){
+        Intent intent = new Intent(this, StatisticsView.class);
         startActivity(intent);
     }
 

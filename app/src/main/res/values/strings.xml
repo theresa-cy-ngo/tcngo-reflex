@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">tcngo-reflex</string>
 
-    <string name="intro">"Welcome to this reaction timer and gameshow buzzer app."</string>
+    // Strings for the main menu
+    <string name="main_info">"Welcome to this reaction timer and gameshow buzzer app."</string>
     <string name="intro2">Please choose one of the following options.</string>
 
     // Names of the main menu buttons
@@ -9,6 +10,17 @@
     <string name="button_gameshow">Gameshow Buzzer</string>
     <string name="button_statistics">Statistics</string>
 
+    // Strings for the buzzer menu
+    <string name="buzzer_info">Please choose the number of players.</string>
+    <string name="button_two">Two Players</string>
+    <string name="button_three">Three Players</string>
+    <string name="button_four">Four Players</string>
+
+    // Strings for the gameshow buzzer game
+    <string name="buzzer_one">Player 1</string>
+    <string name="buzzer_two">Player 2</string>
+    <string name="buzzer_three">Player 3</string>
+    <string name="buzzer_four">Player 4</string>
 
     <string name="action_settings">Settings</string>
     <string name="title_activity_reaction_view">ReactionView</string>
@@ -19,4 +31,8 @@
     <string name="hello_world">Hello world!</string>
     <string name="title_activity_reaction_pop_up">ReactionPopUp</string>
     <string name="title_activity_statistics_view">StatisticsView</string>
+    <string name="title_activity_buzzer_menu_view">BuzzerMenuView</string>
+    <string name="title_activity_buzzer_two">BuzzerTwo</string>
+    <string name="title_activity_buzzer_three">BuzzerThree</string>
+    <string name="title_activity_buzzer_four">BuzzerFour</string>
 </resources>
