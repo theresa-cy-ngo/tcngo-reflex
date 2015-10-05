@@ -16,6 +16,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ReactionView"
+            android:label="@string/title_activity_reaction_view" >
+        </activity>
+        <activity
+            android:name=".StatisticsView"
+            android:label="@string/title_activity_statistics_view" >
+        </activity>
+        <activity
+            android:name=".BuzzerMenuView"
+            android:label="@string/title_activity_buzzer_menu_view" >
+        </activity>
+        <activity
+            android:name=".BuzzerTwo"
+            android:label="@string/title_activity_buzzer_two" >
+        </activity>
+        <activity
+            android:name=".BuzzerThree"
+            android:label="@string/title_activity_buzzer_three" >
+        </activity>
+        <activity
+            android:name=".BuzzerFour"
+            android:label="@string/title_activity_buzzer_four" >
+        </activity>
+        <activity
+            android:name=".ReactionStat"
+            android:label="@string/title_activity_reaction_stat" >
+        </activity>
+        <activity
+            android:name=".BuzzerStat"
+            android:label="@string/title_activity_buzzer_stat" >
+        </activity>
     </application>
 
 </manifest>

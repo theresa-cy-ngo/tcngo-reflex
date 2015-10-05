@@ -25,32 +25,34 @@ import android.view.View;
  * Created by Theresa Ngo on 04-10-15.
  */
 
-// This is the main menu of the application
-public class MainMenu extends AppCompatActivity {
+// This activity is the view for the Gameshow menu to ask for the number of players
+public class BuzzerMenuView extends AppCompatActivity {
 
     // Create file
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_buzzer_menu_view);
     }
 
-    // Called when the user chooses Reaction Time
-    public void reactionOption(View view){
-        Intent intent = new Intent(this, ReactionView.class);
+    // Two players chosen
+    public void gameTwo(View view){
+        Intent intent = new Intent(this, BuzzerTwo.class);
         startActivity(intent);
+
     }
 
-    // Called when the user chooses Gameshow Buzzer
-    public void gameshowOption(View view){
-        Intent intent = new Intent(this, BuzzerMenuView.class);
+    // Three players chosen
+    public void gameThree(View view){
+        Intent intent = new Intent(this, BuzzerThree.class);
         startActivity(intent);
+
     }
 
-    // Called when the user chooses Statistics
-    public void statisticsOption(View view){
-        Intent intent = new Intent(this, StatisticsView.class);
+    // Four players chosen
+    public void gameFour(View view){
+        Intent intent = new Intent(this, BuzzerFour.class);
         startActivity(intent);
-    }
 
+    }
 }

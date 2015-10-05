@@ -25,32 +25,27 @@ import android.view.View;
  * Created by Theresa Ngo on 04-10-15.
  */
 
-// This is the main menu of the application
-public class MainMenu extends AppCompatActivity {
+// This activity is the main menu of the Statistics option
+public class StatisticsView extends AppCompatActivity {
 
     // Create file
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_statistics_view);
     }
 
-    // Called when the user chooses Reaction Time
-    public void reactionOption(View view){
-        Intent intent = new Intent(this, ReactionView.class);
+    // Called when the Reaction Time statistics are chosen
+    public void reactionStat(View view){
+        Intent intent = new Intent(this, ReactionStat.class);
         startActivity(intent);
+
     }
 
-    // Called when the user chooses Gameshow Buzzer
-    public void gameshowOption(View view){
-        Intent intent = new Intent(this, BuzzerMenuView.class);
+    // Called when the Gameshow statistics are chosen
+    public void buzzerStat(View view){
+        Intent intent = new Intent(this, BuzzerThree.class);
         startActivity(intent);
-    }
 
-    // Called when the user chooses Statistics
-    public void statisticsOption(View view){
-        Intent intent = new Intent(this, StatisticsView.class);
-        startActivity(intent);
     }
-
 }
