@@ -5,7 +5,8 @@ import java.util.Random;
 /**
  * Created by Owner on 10/4/2015.
  */
-public class Timer {
+public class GenerateTime {
+
     // Chooses a random wait time between 10ms and 2000ms
     public int RandomTime() {
         Random counter = new Random();
@@ -13,4 +14,5 @@ public class Timer {
 
         return timer;
     }
+
 }

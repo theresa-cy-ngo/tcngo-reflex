@@ -21,11 +21,6 @@
             android:label="@string/title_activity_reaction_view" >
         </activity>
         <activity
-            android:name=".ReactionPopUp"
-            android:theme="@style/AppTheme.CustomTheme"
-            android:label="Instructions" >
-        </activity>
-        <activity
             android:name=".StatisticsView"
             android:label="@string/title_activity_statistics_view" >
         </activity>
