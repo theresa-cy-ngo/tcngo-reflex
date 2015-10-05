@@ -1,7 +1,7 @@
 # tcngo-reflex
 CMPUT 301 Assignment 1
 
-Video Demonstration URL:
+Video Demonstration URL: N/A (The video file is in github)
 
 Notes:
 -Reaction Timer and Gameshow Buzzer are operational
@@ -10,9 +10,13 @@ Notes:
 
 -As a result, no e-mail functionality
 
+-Clear statistic function has not been implemented
+
 -UML diagram added in main folder
 
-Additional Resource Links:
+-Video added in main folder
+
+Additional Resources and References:
 lonelyTwitter repository from joshua2ua
 https://developer.android.com/training/basics/firstapp/index.html
 http://developer.android.com/reference/android/app/AlertDialog.Builder.html
